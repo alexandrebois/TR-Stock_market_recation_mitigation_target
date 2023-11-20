@@ -19,8 +19,8 @@ The python script contains three useful function that are often used, in order t
 ### Raw data contents and origin
 
 * companies-taking-action.xlsx : an excel file dowloaded from the SBTi, that lists all the companies whose GhG emission mitigation plan has been approved by the SBTi. This excel contains data about the sector, the geographical origin, and the date of the GhG emission mitigation annoucement. The main problem of this file is that the dates availables only have a one-month precision, while we need the precise date to calculate the anormal return.
-* date.csv : contains the precise date where companies revealed that their Ghg emission mitigation plan was validated by the SBTi, the data is also from the SBTi. This file contains fewer companies that the companies-taking-action.xlsx, but can be used to calculate anormals returns
-* info.csv : an other dataframe from the SBTi, that contains informations about the companies we studied (sector, type, geographical origin ...)
+* date.csv : contains the precise date where companies revealed that their Ghg emission mitigation plan was validated by the SBTi, the data is also from the SBTi. This file contains fewer companies that the companies-taking-action.xlsx, but can be used to calculate anormals returns.This dataframe was created by selecting a fraction of the SBTiMonitoringReport2022TargetProgressData.xlsx in excel in order to have a python readable file.
+* info.csv : an other dataframe from the SBTi, that contains informations about the companies we studied (sector, type, geographical origin ...). This dataframe was also created by selecting a fraction of the SBTiMonitoringReport2022TargetProgressData.xlsx in excel in order to have a python readable file.
   
 To link these three dataframe, we will use the ISIN number of the companies as an index.
   

@@ -2,6 +2,7 @@ import numpy as np
 import re
 import pandas as pd 
 import datetime
+import matplotlib.pyplot as plt
 
 # Function to test if an ISIN code is valid
 def is_valid_isin(isin):
@@ -86,3 +87,29 @@ def to_date(str):
      return date
 
 to_date = np.vectorize(to_date)
+
+def plot_conf( index, conf, mean, linewidth = 5, color = 'red', alpha = 0.5, label =''):
+    '''
+    Parameters 
+    -----------
+    index : array of x value
+    conf : array of confidence terms ( eg sigma/sqrt(n))
+    mean : array of mean values
+    linewidth : int, default = 5
+    color : default = 'red'
+    alpha : default = 0.5
+    label : str, default = ''
+    
+    Returns
+    -----------
+    None
+    Plots confidency bars on the chart 
+    '''
+    for i in range(len(index) - 1 ):
+        plt.plot( [index[i], index[i]] , [mean[i] - conf[i], mean[i] + conf[i]], linewidth = linewidth,
+                 color = color , alpha = alpha )
+    n = len(index) -1
+    plt.plot( [index[n], index[n]] , [mean[n] - conf[n], mean[n] + conf[n]], linewidth = linewidth,
+                 color = color , alpha = alpha, label = label)
+   
+        
