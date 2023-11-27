@@ -10,7 +10,7 @@ This repository contains the code and data used for the research trimester, and 
 
 The first notebook is used to visualize the data from the Science Based Target initiative (SBTi), in order to visualize selection bias in the data that we will process later. 
 
-The second notebook calculates the anormal returns using Mc'Kinlay's market model, for all the firms available, and results in the creation of a 'AR.csv' dataframe that contains the raw result data.
+The second notebook calculates the abnormal returns using Mc'Kinlay's market model, for all the firms available, and results in the creation of a 'AR.csv' dataframe that contains the raw result data.
 
 The last notebook focuses on the result we got in notebook 2, and contains validity tests of the results and also heterogeneity studies of the results.
 
@@ -28,3 +28,9 @@ We also have two files from datastream that contains informations about the stoc
 
 * equities.csv : contains the value of the main equity of the studied firms
 * indices.csv : contains the market index used in the market model
+
+### Precisions on the calculated AR
+
+For a given firm, we first calculate the abnormal return $r_1$ for the day after the target release, and the abnormal return $r_2$ for the second day after the meeting. We then focus on $r = \sqrt{(1+r_1)(1+r_2)} - 1$, the corresponding average abnormal return for $r_1$ and $r_2$. We decided to consider two and not only one day after the release to be sure that the effect of the release was integrated in the market price of the security. 
+
+The time period used to train the model (linear regression) are 50, 100, 150, 200 and 250 market days. They correspond to time period lasting from 10 market weeks to one market year.
